@@ -28,6 +28,21 @@ public class Main {
         // zamienią się miejscami.
 
 
-        // 9.
+        // 9. Stwórz zmienną liczbową typu byte.
+
+
+
+        // 10. Przypisz do niej wartość zmiennej liczbowej z punktu 1.
+
+
+
+        // 11. Przypisz do zmiennej z p. 9 wartość większą o 2.
+
+
+
+        // 12. Przypisz do zmiennej z p.9 wartość jej samej pomnożoną przez 100.
+
+
+
     }
 }
