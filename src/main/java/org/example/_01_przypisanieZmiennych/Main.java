@@ -44,5 +44,21 @@ public class Main {
 
 
 
+        // 13. Nie korzystając z operacji modulo sprawdź czy liczba 1342980 jest podzielna przez 9.
+
+
+
+        // 14. Przedstaw liczbę 15 w postaci binarnej.
+
+
+
+        // 15. Przedstaw liczbę 15 w postaci ósemkowej.
+
+
+
+        // 16. Przedstaw liczbę 15 w postaci szesnastkowej.
+
+
+
     }
 }
