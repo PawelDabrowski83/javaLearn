@@ -26,10 +26,17 @@ public class MainArrays {
 
         // 3. Stwórz tablicę charów składającą się z liter: L, o, r, e, m
 
-        char[] chars = {'L', 'o', 'r', 'e', 'm'};
-        String varr = new String(chars);
-        System.out.println(varr);
 
-        // 4.
+
+
+        // 4. Napisz program, który znajduje najniższą wartość w tablicy z p. 3.
+
+
+
+        // 5. Stwórz tablicę intów o rozmiarze 10. Wypełnij je kolejnymi liczbami, zaczynając od liczby 5.
+
+
+
+        // 6. Za pomocą pętli zwiększ o 3 wartość każdej liczby z tablicy z p. 5.
     }
 }
