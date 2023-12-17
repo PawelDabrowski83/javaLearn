@@ -1,5 +1,7 @@
 package przypisanieZmiennych;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         // 1. Stwórz zmienną całkowitoliczbową i przypisz do niej wartość 17.
@@ -85,6 +87,8 @@ public class Main {
 
         // 16. Przedstaw liczbę 15 w postaci szesnastkowej.
         // 0-f 0-15
+
+
 
 
 
