@@ -22,6 +22,12 @@ public class MainIf {
         // "niewielka" jeśli liczba jest mniejsza niż 0,2
         // "w normie" jeśli liczba nie spełnia tego warunku
 
+//        double i = Math.random();
+//        if(i < 0.2) System.out.println("niewielka");
+//        else System.out.println("w normie");
+//
+//        System.out.println(i);
+
 
 
         // 3. Napisz program, który odczytuje liczbę losową i wyświetla komunikat:
@@ -34,6 +40,16 @@ public class MainIf {
 
         // 4. Napisz program, który wylosuje dwie liczby a i b.
         // wyświetl informację która z nich jest mniejsza
+
+         double a = Math.random();
+         double b = Math.random();
+         if(a>b){
+             System.out.println("a jest większa");
+         }else{
+             System.out.println("b jest większa");
+         }
+         System.out.println("a = " + a);
+         System.out.println("b = " + b);
 
 
 
