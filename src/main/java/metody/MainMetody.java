@@ -1,10 +1,7 @@
 package metody;
 
+
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class MainMetody {
     /**
@@ -19,25 +16,42 @@ public class MainMetody {
      * Jeśli są równe, zwraca wartość -1.
      */
     public static int bigger(int liczba1, int liczba2) {
-        return liczba1 == liczba2 ? -1 :
-                Math.max(liczba1, liczba2);
+        if (liczba1 > liczba2){
+            return liczba1;
+        }
+        if(liczba2> liczba1){
+            return liczba2;
+        }else{
+            return -1;
+        }
+
     }
 
     /**
      * Napisz metodę increaseArray która przyjmie parametr int[] oraz liczbę, która będzie dodana do każdego
      * elementu tablicy. Zwróć tablicę po wykonanych obliczeniach.
      */
-    public static int[] increaseArray(int[] array, int i) {
-        return Arrays.stream(array).map(n -> n + i).toArray();
+    public static int[] increaseArray(int[] array, int k) {
+        // array 0...(lenght-1)
+        for(int i= 0; i < array.length; i++){
+            array[i]= array[i] + k;
+        }
+
+        return array;
     }
 
     /**
      * Napisz metodę shortenArray, która przyjmuje tablicę wartości int[] i zwraca tablicę int[] krótszą o jeden element.
      */
     public static int[] shortenArray(int[] array) {
-        int[] result = new int[array.length -1];
-        System.arraycopy(array, 0, result, 0, result.length);
-        return result;
+        // array {1, 2, 3} length
+        // new array {1, 2}
+        int[] arr = new int[array.length-1];
+        for(int i = 0; i < arr.length;i++){
+            arr[i]=array[i];
+        }
+
+        return arr;
     }
 
     /**
@@ -45,29 +59,79 @@ public class MainMetody {
      * wynik jest polem prostokąta.
      */
     public static int poleProstokata(int a, int b){
-        return a * b;
+
+        return a*b;
     }
+
+    /**
+     * Napisz metodę poleKwadratu z wykorzystaniem metody poleProstokata
+     */
+    public static int poleKwadratu(int a){
+        return poleProstokata(a, a);
+    }
+
+
 
     /**
      * Napisz metodę longestString, która przyjmuje tablicę Stringów i zwraca wyraz, który jest najdłuższy.
      */
     public static String longestString(String[] words) {
-        return Arrays.stream(words).max(Comparator.comparingInt(String::length)).orElse("");
+        // {"Lorem",  "ipsum", "konstytucja"}
+        String najdluzszeSlowo = "";
+        int dlugoscNajdluzszegoSlowa = 0;
+
+//        for(int i = 0 ; i< words.length;i++){
+//            String slowo = words[i];
+//            int dlugosc = slowo.length();
+//
+//            if (dlugosc > dlugoscNajdluzszegoSlowa) {
+//                najdluzszeSlowo = slowo;
+//                dlugoscNajdluzszegoSlowa = dlugosc;
+//            }
+//
+//        }
+//
+
+        return "";
     }
+
+    /**
+     * ZNajdz i zwroc najmniejszy element podanej tablicy .
+     */
+    public  static int najmniejszyElement(int[] arr){
+        // {9} => 9
+        // {1, 2, 3, 7, 0} => 0
+        // {9, 10, 7, 11} => 7
+        // {7, 6, 5}
+        int pamiec = arr[0];
+        for(int i = 0; i<arr.length;i++){
+            if(pamiec > arr[i]) {
+                pamiec = arr[i];
+            }
+        }
+        return pamiec;
+    }
+
+
 
     /**
      * Napisz metodę generateInt o parametrach int rangeStart i int rangeEnd, która zwróci liczbę losową int w podanych
      * widełkach (włącznie).
      */
     public static int generateInt(int rangeStart, int rangeEnd) {
-        return ThreadLocalRandom.current().nextInt(rangeStart, rangeEnd + 1);
+        // [2-5] {2, 3, 4, 5}
+        int zasieg = rangeEnd - rangeStart + 1;
+        int i = (int)(Math.random()* zasieg) + rangeStart; // 0-4
+
+        return i;
     }
 
     /**
      * Napisz metodę generateInt20 która nie przyjmuje parametrów i zwraca liczbę w zakresie od 1 do 20.
      */
     public static int generateInt20() {
-        return generateInt(1, 20);
+        int liczba = generateInt(1,20);
+        return liczba;
     }
 
     /**
@@ -75,7 +139,11 @@ public class MainMetody {
      * o długości określonej przez limit.
      */
     public static int[] generateArray(int limit) {
-        return IntStream.generate(MainMetody::generateInt20).limit(limit).toArray();
+        int[] arr = new int[limit];
+        for(int i = 0; i<arr.length; i++){
+            arr[i]=generateInt20();
+        }
+        return  arr;
     }
 
     /**
@@ -83,6 +151,33 @@ public class MainMetody {
      * (liczba tablic-kolumn). Wynikiem działania metody jest tablica dwuwymiarowa wypełniona wartościami z zakresu 1-20.
      */
     public static int[][] generateArrays(int rows, int columns) {
-        return Stream.generate(() -> generateArray(columns)).limit(rows).toArray(int[][]::new);
+        //
+        int[][] bigarr = new int[rows][];
+        for(int i = 0; i<bigarr.length; i++){
+            bigarr[i] = generateArray(columns);
+        }
+
+
+
+        return bigarr;
     }
+
+    public static void main(String[] args) {
+        int[][] arr = generateArrays(3, 3);
+        /**
+         * wyświetlić tablicę arr
+         */
+        for(int i = 0; i < arr.length;i++){
+            // arr[i] => {...}
+            // arr[i][j]
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+
+    }
+
+
 }
